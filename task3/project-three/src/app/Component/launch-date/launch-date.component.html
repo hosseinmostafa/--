@@ -1,0 +1,15 @@
+<div class="container mb-3">
+  <div class="text-center d-flex justify-content-center align-items-center">
+    <select class="form-select mt-5 mb-3 w-25" aria-label="Default select example" [(ngModel)]="selectedFormat">
+      <option class=""  *ngFor="let format of formats" [value]="format">{{ format }}</option>
+    </select>
+  </div>
+</div>
+
+<div class="container">
+  <div class="text-center">
+    <!-- <button class="btn btn-primary pe-5 ps-5" (click)="launchDate = new Date()">Launch Date</button> -->
+    <p>Date: {{ launchDate | date: selectedFormat }}</p>
+    <!-- <p>Date: {{ "2016-01-05T09:05:05.035Z" | date }}</p> -->
+  </div>
+</div>
