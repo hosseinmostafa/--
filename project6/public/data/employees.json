@@ -1,0 +1,52 @@
+[
+    {
+        "id": "1",
+        "name": "John Doe",
+        "position": "Software Engineer",
+        "department": "Development",
+        "email": "john.doe@example.com",
+        "age": 30,
+        "salary": 75000,
+        "startDate": "2018-06-15"
+    },
+    {
+        "id": "2",
+        "name": "Jane Smith",
+        "position": "Project Manager",
+        "department": "Management",
+        "email": "jane.smith@example.com",
+        "age": 35,
+        "salary": 85000,
+        "startDate": "2016-11-01"
+    },
+    {
+        "id": "3",
+        "name": "Mike Johnson",
+        "position": "QA Engineer",
+        "department": "Quality Assurance",
+        "email": "mike.johnson@example.com",
+        "age": 28,
+        "salary": 70000,
+        "startDate": "2019-03-10"
+    },
+    {
+        "id": "4",
+        "name": "Emily Davis",
+        "position": "UI/UX Designer",
+        "department": "Design",
+        "email": "emily.davis@example.com",
+        "age": 32,
+        "salary": 72000,
+        "startDate": "2017-08-22"
+    },
+    {
+        "id": "5",
+        "name": "Daniel Wilson",
+        "position": "DevOps Engineer",
+        "department": "IT",
+        "age": 29,
+        "salary": 65000,
+        "startDate": "2020-01-20",
+        "email": "daniel.wilson@example.com"
+    }
+]

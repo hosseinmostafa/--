@@ -1,0 +1,23 @@
+<div class="container py-3 mt-4">
+    <div class="text-center py-3">
+        <h1>Employee List</h1>
+    </div>
+    <table class="table table-bordered table-hover table-striped rounded shadow">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees; let i = index"
+                [ngClass]="{ 'table-success': i % 2 === 0, 'table-info': i % 2 !== 0 }">
+                <th scope="row">
+                    {{ employee.id }}
+                </th>
+                <td (click)="goToEmployeeDetails(employee.id)">{{ employee.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

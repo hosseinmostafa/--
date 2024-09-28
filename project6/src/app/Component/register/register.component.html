@@ -1,0 +1,101 @@
+<div class="img">
+
+    <div class="container p-4 ">
+        <div class="row pt-4 pb-4">
+        <div class="col-md-8 offset-md-2 mb-5">
+            <!-- (ngSubmit)="onSubmit()" -->
+            <form  #registerForm="ngForm" novalidate >
+                <label class="form-label">Name</label>
+                <div class="input-group flex-nowrap mb-2">
+                    <input
+                    [(ngModel)]="userModel.name"
+                    name="name"
+                    #name="ngModel"
+                    type="text" 
+                    class="form-control"  
+                    placeholder="Username" 
+                    aria-label="Username"
+                    pattern="[a-zA-Z]*"
+                    required
+                    [class.is-invalid]="name.invalid && name.touched"
+                    aria-describedby="addon-wrapping">
+                </div>
+                <div *ngIf="name.errors && name.touched">
+                    <small *ngIf='name.errors["required"]' class="text-danger">Name is required</small>
+                    <small *ngIf='name.errors["pattern"]' class="text-danger">User Name must only contain uppercase and lowercase characters</small>
+    
+                </div>
+    
+                <div class="mb-3">
+                    <label for="exampleInputPhone" class="form-label">Phone</label>
+                    <input
+                    [(ngModel)]="userModel.phone"
+                    name="phone" 
+                    #phone="ngModel"
+                    type="number" 
+                    class="form-control" 
+                    id="exampleInputPhone"
+                    required
+                    [class.is-invalid]="phone.invalid && phone.touched"
+                    pattern="^\d{11}$">
+                    <div *ngIf="phone.errors && phone.touched">  
+                        <small *ngIf='phone.errors["required"]' class="text-danger">Phone is required</small>
+                        <small *ngIf='phone.errors["pattern"]' class="text-danger">Phone must be 11 digit at leste</small>
+                    </div>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input
+                    [(ngModel)]="userModel.email"
+                    name="email" 
+                    #email="ngModel" 
+                    type="email" 
+                    class="form-control" 
+                    id="exampleInputEmail1" 
+                    aria-describedby="emailHelp"
+                    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    required
+                    [class.is-invalid]="email.invalid && email.touched">
+                </div>
+                <small *ngIf="email.invalid && email.touched" class="text-danger">Email is required</small>
+    
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input
+                    [(ngModel)]="userModel.password"
+                    name="password" 
+                    #password="ngModel"
+                    ngModel 
+                    type="password" 
+                    class="form-control" 
+                    id="exampleInputPassword1"
+                    required
+                    [class.is-invalid]="password.invalid && password.touched">
+                </div>
+                <small *ngIf="password.invalid && password.touched" class="text-danger">Password is required</small>
+                
+                <div class="mb-3">
+                    <label  class="form-label">Confirm Password</label>
+                    <input  type="password" class="form-control" id="exampleInputconfirmPassword" required>
+                </div>
+    
+                <div class="mb-3 form-check">
+    
+                    <input
+                    name="checkbox"
+                    type="checkbox" 
+                    class="form-check-input" 
+                    id="exampleCheck1"
+                    >
+                    <label  class="form-check-label" for="exampleCheck1">Remmper me</label>
+                </div>
+    
+                
+    
+                <button [disabled]="registerForm.form.invalid" type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <img [src]="img" alt=""> -->

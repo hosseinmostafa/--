@@ -1,0 +1,50 @@
+<div class="img">
+
+    <div class="container p-4 ">
+        <div class="row pt-4 pb-4">
+
+            <div class="col-6 offset-md-3 ">
+                <form #registerForm="ngForm" novalidate>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input 
+                        [(ngModel)]="userModel.email"
+                        name="email" 
+                        #email="ngModel" 
+                        type="email" 
+                        class="form-control" 
+                        id="exampleInputEmail1" 
+                        aria-describedby="emailHelp"
+                        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                        required
+                        [class.is-invalid]="email.invalid && email.touched">
+                    </div>
+                    <small *ngIf="email.invalid && email.touched" class="text-danger">Email is required</small>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input 
+                        type="password" 
+                        class="form-control" 
+                        id="exampleInputPassword1"
+                        [(ngModel)]="userModel.password"
+                        name="password" 
+                        #password="ngModel"
+                        ngModel required
+                        [class.is-invalid]="password.invalid && password.touched">
+                    </div>
+                    <small *ngIf="password.invalid && password.touched" class="text-danger">Password is required</small>
+        
+                    <div class="mb-3 form-check">
+                        <input 
+                        type="checkbox" 
+                        class="form-check-input" 
+                        id="exampleCheck1">
+        
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                <button [disabled]="registerForm.form.invalid" type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+        </div>
+</div>
