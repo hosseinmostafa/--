@@ -7,8 +7,9 @@ import { USERModul } from '../Component/register/UserModule';
 })
 export class UserService {
 
-  private baseURL: string = "https://login-a470d-default-rtdb.firebaseio.com/users.json"
-  
+  private baseURL: string =
+    'https://login-a470d-default-rtdb.firebaseio.com/users.json';
+
   constructor(private http: HttpClient) { }
 
   addUser(user: USERModul) {

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './emplyee-list.component.html',
   styleUrl: './emplyee-list.component.scss'
 })
-// implements OnInit
+
 export class EmplyeeListComponent implements OnInit {
 
   employees: any = [];

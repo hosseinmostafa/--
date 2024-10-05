@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row pt-4 pb-4">
+    <div class="text-center">
+      <h1>Reactive Form</h1>
+      {{regsetForm.value | json}}
+    </div>
+
+    <form class="mb-2 mt-3" [formGroup]="regsetForm" novalidate>
+      <div class="row">
+
+        <div class="col mb-3">
+          <label for="exampleInputName" class="form-label">Name</label>
+          <input 
+          pattern="[a-zA-Z]*" 
+          [class.is-invalid]="regsetForm.get('userName')?.touched && regsetForm.get('userName')?.invalid"
+            formControlName="userName"
+            type="text" 
+            class="form-control" 
+            aria-label="Name">
+        </div>
+      </div>
+
+      <div *ngIf="regsetForm.get('userName')?.touched && regsetForm.get('userName')?.invalid">
+        <small class="text-danger" *ngIf="regsetForm.get('userName')?.errors?.['required']">Name is required</small>
+        <small class="text-danger" *ngIf="regsetForm.get('userName')?.errors?.['minlength']">maximum name is 3 characters at least</small>
+        <small class="text-danger" *ngIf="regsetForm.get('userName')?.errors?.['forbiddenName']">UserName admin is not allwod</small>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input 
+        formControlName="password" 
+        type="password" 
+        class="form-control" 
+        id="exampleInputPassword1">
+      </div>
+      <small *ngIf="regsetForm.get('password')?.touched && regsetForm.get('password')?.invalid"
+        class="text-danger">Password is required</small>
+
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+        <input 
+        formControlName="confirmPassword" 
+        type="password" 
+        class="form-control" 
+        [class.is-invalid]="regsetForm.errors?.['misMatch']" 
+        id="exampleInputPassword1">
+
+        <small class="text-danger" *ngIf="regsetForm.errors?.['misMatch']"></small>
+        
+      </div>
+      <div class="mb-3">
+
+        <div formGroupName="location" class="mb-3">
+          <div class="form-gruop ">
+            <label for="exampleInputPassword1" class="form-label">City</label>
+            <input formControlName="city" type="text" class="form-control">
+          </div>
+
+          <div class="form-gruop">
+            <label for="exampleInputPassword1" class="form-label">Styte</label>
+            <input formControlName="state" type="text" class="form-control">
+          </div>
+
+          <div class="form-gruop">
+            <label for="exampleInputPassword1" class="form-label">Postel code</label>
+            <input formControlName="postalCode" type="text" class="form-control">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success" (click)="gitData()">Git Data</button>
+      </div>
+
+    </form>
+  </div>
+</div>

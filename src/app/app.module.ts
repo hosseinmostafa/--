@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
+// import withInterceptorsFromDi, provideHttpClient 3la shan httpclient 
 import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
+// import reactiveFormMdule
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { EmplyeeListComponent } from './Component/emplyee-list/emplyee-list.component';
@@ -14,6 +18,7 @@ import { FooterComponent } from './Component/footer/footer.component';
 import { HomeComponent } from './Component/home/home.component';
 import { RegisterComponent } from './Component/register/register.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormComponent } from './Component/reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -25,16 +30,21 @@ import { RouterModule } from '@angular/router';
     NavComponent,
     FooterComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    ReactiveFormComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule,
+    // add reactiveFormMdule
+    ReactiveFormsModule
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
+    
   ],
   bootstrap: [AppComponent]
 })
