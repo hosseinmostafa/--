@@ -9,46 +9,59 @@
       <div class="row">
 
         <div class="col mb-3">
-          <label for="exampleInputName" class="form-label">Name</label>
-          <input 
-          pattern="[a-zA-Z]*" 
-          [class.is-invalid]="regsetForm.get('userName')?.touched && regsetForm.get('userName')?.invalid"
-            formControlName="userName"
-            type="text" 
-            class="form-control" 
-            aria-label="Name">
+          <label for="exampleInputName" class="form-label">User Name</label>
+          <input pattern="[a-zA-Z]*"
+            [class.is-invalid]="regsetForm.get('userName')?.touched && regsetForm.get('userName')?.invalid"
+            formControlName="userName" type="text" class="form-control" aria-label="Name">
+          <div *ngIf="regsetForm.get('userName')?.touched && regsetForm.get('userName')?.invalid">
+            <small class="text-danger" *ngIf="regsetForm.get('userName')?.errors?.['required']">Name is required</small>
+            <small class="text-danger" *ngIf="regsetForm.get('userName')?.errors?.['minlength']">maximum name is 3
+              characters at least</small>
+            <small class="text-danger" *ngIf="regsetForm.get('userName')?.errors?.['forbiddenName']">UserName admin is
+              not allwod</small>
+          </div>
         </div>
+
       </div>
 
-      <div *ngIf="regsetForm.get('userName')?.touched && regsetForm.get('userName')?.invalid">
-        <small class="text-danger" *ngIf="regsetForm.get('userName')?.errors?.['required']">Name is required</small>
-        <small class="text-danger" *ngIf="regsetForm.get('userName')?.errors?.['minlength']">maximum name is 3 characters at least</small>
-        <small class="text-danger" *ngIf="regsetForm.get('userName')?.errors?.['forbiddenName']">UserName admin is not allwod</small>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
+          aria-describedby="emailHelp" [class.is-invalid]="email?.touched && email?.invalid">
+
+        <small *ngIf="email?.touched && email?.invalid" class="text-danger">Email is required</small>
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
       </div>
+
+      <div class="form-check">
+        <input class="form-check-input" 
+        type="checkbox" 
+        value=""
+        formControlName="subscrib"
+        (click)="setValetator()" 
+        id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Send me new Offer
+        </label>
+      </div>
+
 
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input 
-        formControlName="password" 
-        type="password" 
-        class="form-control" 
-        id="exampleInputPassword1">
+        <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+        <small *ngIf="regsetForm.get('password')?.touched && regsetForm.get('password')?.invalid"
+          class="text-danger">Password is required</small>
       </div>
-      <small *ngIf="regsetForm.get('password')?.touched && regsetForm.get('password')?.invalid"
-        class="text-danger">Password is required</small>
 
 
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-        <input 
-        formControlName="confirmPassword" 
-        type="password" 
-        class="form-control" 
-        [class.is-invalid]="regsetForm.errors?.['misMatch']" 
-        id="exampleInputPassword1">
+        <input formControlName="confirmPassword" type="password" class="form-control"
+          [class.is-invalid]="regsetForm.errors?.['misMatch']" id="exampleInputPassword1">
 
         <small class="text-danger" *ngIf="regsetForm.errors?.['misMatch']"></small>
-        
+
       </div>
       <div class="mb-3">
 
